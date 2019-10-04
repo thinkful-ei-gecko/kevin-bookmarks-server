@@ -6,9 +6,9 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
-const { NODE_ENV } = require('./config');
-const validateBearerToken = require('./validateBearerToken');
-const errorHandler = require('./errorHandler');
+const { NODE_ENV } = require('../config');
+const validateBearerToken = require('../bin/validateBearerToken');
+const errorHandler = require('../bin/errorHandler');
 const bookmarksRouter = require('./bookmarks.router');
 
 /*******************************************************************
@@ -23,7 +23,7 @@ app.use(morgan(NODE_ENV === 'production' ? 'tiny' : 'common'));
 app.use(cors());
 app.use(helmet());
 // app.use(express.json());
-// app.use(validateBearerToken);
+app.use(validateBearerToken);
 
 /*******************************************************************
   ROUTES
