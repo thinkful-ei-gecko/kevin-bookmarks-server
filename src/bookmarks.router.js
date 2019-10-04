@@ -1,8 +1,8 @@
 const express = require('express');
-const bookmarkRouter = express.Router();
 const uuidv4 = require('uuid/v4');
-const bodyParser = express.json();
 const logger = require('./logger');
+const bookmarkRouter = express.Router();
+const bodyParser = express.json();
 
 const bookmarksData = [
   {
