@@ -7,7 +7,7 @@ const bookmarkRouter = express.Router();
 const bodyParser = express.json();
 
 bookmarkRouter
-  .route('/bookmarks')
+  .route('/')
   .get((req, res, next) => {
     logger.info('bookmarks retreived');
     BookmarksService.getAllBookmarks(req.app.get('db'))
@@ -46,7 +46,7 @@ bookmarkRouter
   });
 
 bookmarkRouter
-  .route('/bookmarks/:bookmark_id')
+  .route('/:bookmark_id')
   .get((req, res, next) => {
     const { bookmark_id } = req.params;
     BookmarksService.getBookmarkById(req.app.get('db'), bookmark_id)
