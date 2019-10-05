@@ -119,8 +119,8 @@ describe.only('Bookmarks Endpoints', () => {
           .set('Authorization', `Bearer ${API_TOKEN}`)
           .expect(200)
           .expect((res) => {
-            expect(res.body[0].title).to.eql(expectedBookmark.title);
-            expect(res.body[0].description).to.eql(
+            chai.expect(res.body[0].title).to.eql(expectedBookmark.title);
+            chai.expect(res.body[0].description).to.eql(
               expectedBookmark.description
             );
           });
@@ -171,8 +171,8 @@ describe.only('Bookmarks Endpoints', () => {
           .set('Authorization', `Bearer ${API_TOKEN}`)
           .expect(200)
           .expect((res) => {
-            expect(res.body.title).to.eql(expectedBookmark.title);
-            expect(res.body.description).to.eql(expectedBookmark.description);
+            chai.expect(res.body.title).to.eql(expectedBookmark.title);
+            chai.expect(res.body.description).to.eql(expectedBookmark.description);
           });
       });
     });
@@ -294,12 +294,12 @@ describe.only('Bookmarks Endpoints', () => {
         .set('Authorization', `Bearer ${API_TOKEN}`)
         .expect(201)
         .expect((res) => {
-          expect(res.body.title).to.eql(newBookmark.title);
-          expect(res.body.url).to.eql(newBookmark.url);
-          expect(res.body.description).to.eql(newBookmark.description);
-          expect(res.body.rating).to.eql(newBookmark.rating);
-          expect(res.body).to.have.property('id');
-          expect(res.headers.location).to.eql(`/bookmarks/${res.body.id}`);
+          chai.expect(res.body.title).to.eql(newBookmark.title);
+          chai.expect(res.body.url).to.eql(newBookmark.url);
+          chai.expect(res.body.description).to.eql(newBookmark.description);
+          chai.expect(res.body.rating).to.eql(newBookmark.rating);
+          chai.expect(res.body).to.have.property('id');
+          chai.expect(res.headers.location).to.eql(`/bookmarks/${res.body.id}`);
         })
         .then((res) =>
           supertest(app)
@@ -318,8 +318,8 @@ describe.only('Bookmarks Endpoints', () => {
         .set('Authorization', `Bearer ${API_TOKEN}`)
         .expect(201)
         .expect((res) => {
-          expect(res.body.title).to.eql(expectedBookmark.title);
-          expect(res.body.description).to.eql(expectedBookmark.description);
+          chai.expect(res.body.title).to.eql(expectedBookmark.title);
+          chai.expect(res.body.description).to.eql(expectedBookmark.description);
         });
     });
   });
